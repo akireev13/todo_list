@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="{% static 'todo/styles.css' %}" />
+  </head>
+  <body>
+    <div>
+      <h1>To-Do List</h1>
+      <ul>
+        {% for task in tasks %}
+        <li>
+          <h2>
+            {% if task.completed %}
+            <strike>{{ task.title }}</strike>
+
+            {% else %} {{ task.title }} -
+            <a href="{% url 'complete_task' task.id %}">Complete</a>
+            {% endif %} |
+            <a
+              href="{% url 'delete_task' task.id %}"
+              onclick="return confirm('Are you sure you want to delete this task?');"
+              >Delete</a
+            >
+          </h2>
+          {% if not task.completed %}
+          <p>{{ task.description }}</p>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      <a href="{% url 'add_task' %}">Add New Task</a>
+    </div>
+  </body>
+</html>

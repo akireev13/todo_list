@@ -1,0 +1,2 @@
+migrations/*
+!__init__py
