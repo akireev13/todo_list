@@ -2,7 +2,7 @@
 
 A simple to-do list application that allows to add, complete and delete tasks. 
 
-Involves basic API implementation and interaaction with built-in to django database sqlite.
+Involves basic API implementation and interaction with built-in to django database sqlite.
 
 In order to run:
 
